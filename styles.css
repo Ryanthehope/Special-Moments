@@ -419,6 +419,20 @@ footer {
     }
 }
 
+/* ── Contact cards grid (no-form layout) ── */
+.contact-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.75rem;
+    padding-bottom: 3rem;
+}
+
+@media (max-width: 640px) {
+    .contact-cards-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 /* ── Contact page ── */
 .contact-intro {
     text-align: center;
