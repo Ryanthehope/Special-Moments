@@ -1,16 +1,25 @@
 :root {
-    --primary-color: #FFE9D0;
-    --secondary-color: #FFFED3;
+    --primary-color: #FFFED3;
+    --secondary-color: #FFE9D0;
     --color-accent: #BBE9FF;
     --color-dark: #B1AFFF;
     --text-color: #333;
 }
 
 body{
-    background-color: var(--secondary-color);
+    background: linear-gradient(300deg, var(--primary-color), var(--secondary-color), var(--color-accent));
+    background-size: 180% 180%;
+    animation: gradient-animation 18s ease infinite;
+    min-height: 100vh;
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 20px;
+}
+
+@keyframes gradient-animation {
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
  
 .logo {
@@ -20,7 +29,7 @@ body{
 }
 
 .navbar {
-    background-color: var(--primary-color);
+    background-color: whitesmoke;
     display: flex;
     align-items: center;
     min-height: 160px;
@@ -31,6 +40,7 @@ body{
     /* break out of body padding to hit full viewport width */
     margin: -20px -20px 0 -20px;
     width: calc(100% + 40px);
+    border-bottom: #333 solid 1px;
 }
 
 h1 {
@@ -99,9 +109,10 @@ h1 {
 
 /* ── Footer ── */
 footer {
-    background-color: var(--primary-color);
+    background-color: whitesmoke;
     margin: 2rem -20px -20px -20px;
     padding: 1.5rem 2rem;
+    border-top: #333 solid 1px;
 }
 
 .footer-content {
@@ -301,20 +312,6 @@ footer {
 
 .product-card:hover .product-image img {
     transform: scale(1.05);
-}
-
-.product-badge {
-    position: absolute;
-    top: 12px;
-    left: 12px;
-    background-color: var(--color-dark);
-    color: #fff;
-    font-size: 0.72rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    padding: 0.3rem 0.65rem;
-    border-radius: 20px;
 }
 
 .product-info {
