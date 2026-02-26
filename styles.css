@@ -371,7 +371,29 @@ footer {
 
 @media (max-width: 640px) {
     .product-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+    }
+
+    .product-desc {
+        display: none;
+    }
+
+    .product-info {
+        padding: 0.85rem 0.9rem 1rem;
+    }
+
+    .product-name {
+        font-size: 0.9rem;
+    }
+
+    .product-price {
+        font-size: 0.95rem;
+    }
+
+    .product-btn {
+        font-size: 0.78rem;
+        padding: 0.4rem 0.85rem;
     }
 }
 
