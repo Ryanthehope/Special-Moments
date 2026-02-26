@@ -10,16 +10,127 @@
 <body>
     <header>
         <nav class="navbar" aria-label="Main Navigation">
-            <img src="./logo/logo.jpg" alt="Special Moments Logo" class="logo">
+            <a href="index.html">
+                <img src="./logo/logo.jpg" alt="Special Moments Logo" class="logo">
+            </a>
+            <span class="brand">Bringing your Special Moments to Life</span>
             <ul class="nav-links">
                 <li class="nav-item"><a class="nav-link" href="index.html"><img src="./svg/house-floor-svgrepo-com.svg" alt="Home" class="nav-icon" width="28" height="28"></a></li>
-                <li class="nav-item"><a class="nav-link" href="shop.html"><img src="./svg/bag-svgrepo-com.svg" alt="Shop" class="nav-icon" width="28" height="28"></a></li>
+                <li class="nav-item"><a class="nav-link active" href="shop.html"><img src="./svg/bag-svgrepo-com.svg" alt="Shop" class="nav-icon" width="28" height="28"></a></li>
                 <li class="nav-item"><a class="nav-link" href="contact.html"><img src="./svg/phone-svgrepo-com.svg" alt="Contact" class="nav-icon" width="28" height="28"></a></li>
             </ul>
         </nav>
     </header>
-    <main>
-        <h1>Shop</h1>
+    <main class="main-content">
+
+        <section class="shop-intro">
+            <h1 class="shop-title">Our Collection</h1>
+            <p class="shop-subtitle">Every piece is handcrafted to order. Browse below and get in touch to begin your personalised creation.</p>
+        </section>
+
+        <div class="product-grid">
+
+            <!-- Card 1 -->
+            <article class="product-card">
+                <div class="product-image">
+                    <!-- Replace with your image, e.g. ./images/photo-memorial.jpg -->
+                    <img src="./images/product-1.jpg" alt="Photo Memorial Resin Frame">
+                    <span class="product-badge">Popular</span>
+                </div>
+                <div class="product-info">
+                    <h2 class="product-name">Photo Memorial Frame</h2>
+                    <p class="product-desc">A treasured photo beautifully preserved in high-quality epoxy resin. Can include names, dates and glitter in your chosen colours.</p>
+                    <div class="product-footer">
+                        <span class="product-price">From &pound;25</span>
+                        <a href="contact.html" class="product-btn">Enquire</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Card 2 -->
+            <article class="product-card">
+                <div class="product-image">
+                    <!-- Replace with your image, e.g. ./images/paw-print.jpg -->
+                    <img src="./images/product-2.jpg" alt="Paw Print Memorial">
+                </div>
+                <div class="product-info">
+                    <h2 class="product-name">Paw Print Memorial</h2>
+                    <p class="product-desc">A forever tribute to your beloved pet. We supply the paw-print pad free of charge. Add ashes, fur, or a personal message.</p>
+                    <div class="product-footer">
+                        <span class="product-price">From &pound;30</span>
+                        <a href="contact.html" class="product-btn">Enquire</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Card 3 -->
+            <article class="product-card">
+                <div class="product-image">
+                    <!-- Replace with your image, e.g. ./images/ashes-memorial.jpg -->
+                    <img src="./images/product-3.jpg" alt="Ashes Memorial Keepsake">
+                    <span class="product-badge">Bespoke</span>
+                </div>
+                <div class="product-info">
+                    <h2 class="product-name">Ashes Memorial</h2>
+                    <p class="product-desc">A deeply personal piece incorporating ashes into a stunning resin keepsake. Free-standing or wall-hung, fully personalised.</p>
+                    <div class="product-footer">
+                        <span class="product-price">From &pound;35</span>
+                        <a href="contact.html" class="product-btn">Enquire</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Card 4 -->
+            <article class="product-card">
+                <div class="product-image">
+                    <!-- Replace with your image, e.g. ./images/keepsake-cube.jpg -->
+                    <img src="./images/product-4.jpg" alt="Personalised Keepsake Cube">
+                </div>
+                <div class="product-info">
+                    <h2 class="product-name">Personalised Keepsake Cube</h2>
+                    <p class="product-desc">A compact cube housing your chosen mementos, flowers, pearls or diamantes. Ideal as a thoughtful gift for any occasion.</p>
+                    <div class="product-footer">
+                        <span class="product-price">From &pound;20</span>
+                        <a href="contact.html" class="product-btn">Enquire</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Card 5 -->
+            <article class="product-card">
+                <div class="product-image">
+                    <!-- Replace with your image, e.g. ./images/wall-hanging.jpg -->
+                    <img src="./images/product-5.jpg" alt="Wall Hanging Memorial Plaque">
+                </div>
+                <div class="product-info">
+                    <h2 class="product-name">Wall Hanging Memorial</h2>
+                    <p class="product-desc">A drilled resin plaque designed to hang on the wall. A beautiful and lasting display piece for your home, fully personalised.</p>
+                    <div class="product-footer">
+                        <span class="product-price">From &pound;40</span>
+                        <a href="contact.html" class="product-btn">Enquire</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Card 6 -->
+            <article class="product-card">
+                <div class="product-image">
+                    <!-- Replace with your image, e.g. ./images/resin-table.jpg -->
+                    <img src="./images/product-6.jpg" alt="Bespoke Resin Table">
+                    <span class="product-badge">Premium</span>
+                </div>
+                <div class="product-info">
+                    <h2 class="product-name">Bespoke Resin Table</h2>
+                    <p class="product-desc">A stunning handcrafted resin table for your bedroom or lounge. Choose your colours, inclusions and style for a truly unique piece.</p>
+                    <div class="product-footer">
+                        <span class="product-price">POA</span>
+                        <a href="contact.html" class="product-btn">Enquire</a>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+
     </main>
     <script src="scripts.js"></script>
      <footer>
