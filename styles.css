@@ -187,6 +187,7 @@ footer {
     overflow: hidden;
     border-radius: 12px;
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 .split-image img {
@@ -197,12 +198,25 @@ footer {
     transition: transform 0.5s ease;
 }
 
+.split-section:hover .split-image {
+    transform: translateY(-6px) scale(1.01);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.22);
+}
+
 .split-section:hover .split-image img {
-    transform: scale(1.03);
+    transform: scale(1.06);
 }
 
 .split-content {
     flex: 1;
+    background: rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    border-radius: 14px;
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
+    
 }
 
 .split-content .sub-heading {
@@ -211,6 +225,7 @@ footer {
     color: var(--text-color);
     position: relative;
     padding-bottom: 0.6rem;
+    
 }
 
 .split-content .sub-heading::after {
@@ -229,6 +244,8 @@ footer {
     line-height: 1.8;
     margin-bottom: 0.85rem;
 }
+
+
 
 /* Responsive: stack vertically on small screens */
 @media (max-width: 768px) {
@@ -287,7 +304,10 @@ footer {
 }
 
 .product-card {
-    background: #fff;
+    background: rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.55);
     border-radius: 14px;
     overflow: hidden;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
@@ -425,7 +445,10 @@ footer {
 
 /* ── Form ── */
 .contact-form-wrapper {
-    background: #fff;
+    background: rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.55);
     border-radius: 14px;
     padding: 2rem;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
@@ -464,7 +487,7 @@ footer {
     font-size: 0.95rem;
     color: var(--text-color);
     font-family: inherit;
-    background: #fafafa;
+    background: rgba(255, 255, 255, 0.6);
     transition: border-color 0.25s ease, box-shadow 0.25s ease;
     outline: none;
 }
@@ -508,7 +531,10 @@ footer {
 }
 
 .info-card {
-    background: #fff;
+    background: rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.55);
     border-radius: 14px;
     padding: 1.4rem 1.6rem;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
@@ -576,7 +602,9 @@ a.info-value:hover {
     align-items: center;
     justify-content: space-between;
     gap: 1.5rem;
-    background: #fff;
+    background: rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     border: 2px solid #f1641e;
     border-radius: 12px;
     padding: 1.1rem 1.6rem;
@@ -628,6 +656,22 @@ a.info-value:hover {
 .fade-in-visible {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* Image slides in from its natural side on scroll */
+.split-section.fade-in-hidden .split-image {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: opacity 0.7s ease 0.15s, transform 0.7s ease 0.15s, box-shadow 0.4s ease;
+}
+
+.split-section.reverse.fade-in-hidden .split-image {
+    transform: translateX(50px);
+}
+
+.split-section.fade-in-visible .split-image {
+    opacity: 1;
+    transform: translateX(0);
 }
 
 /* ── Form validation ── */
