@@ -346,12 +346,6 @@ footer {
     border-top: 1px solid rgba(0, 0, 0, 0.07);
 }
 
-.product-price {
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: var(--text-color);
-}
-
 .product-btn {
     display: inline-block;
     background-color: var(--color-dark);
@@ -385,10 +379,6 @@ footer {
 
     .product-name {
         font-size: 0.9rem;
-    }
-
-    .product-price {
-        font-size: 0.95rem;
     }
 
     .product-btn {
