@@ -579,7 +579,7 @@ a.info-value:hover {
     justify-content: space-between;
     gap: 1.5rem;
     background: #fff;
-    border: 2px solid;
+    border: 2px solid #f1641e;
     border-radius: 12px;
     padding: 1.1rem 1.6rem;
     margin-bottom: 2rem;
@@ -587,23 +587,24 @@ a.info-value:hover {
 }
 
 .etsy-banner-text {
+    flex: 1;
     font-size: 0.95rem;
     color: var(--text-color);
-    line-height: 1.5;
+    line-height: 1.6;
 }
 
 .etsy-btn {
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
     background-color: #f1641e;
     color: #fff;
     text-decoration: none;
     font-size: 0.9rem;
     font-weight: 700;
-    padding: 0.6rem 1.4rem;
+    padding: 0.7rem 1.8rem;
     border-radius: 25px;
     white-space: nowrap;
+    letter-spacing: 0.02em;
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
@@ -618,5 +619,7 @@ a.info-value:hover {
         align-items: flex-start;
     }
 }
+
+
 
 
