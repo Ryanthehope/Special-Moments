@@ -572,4 +572,51 @@ a.info-value:hover {
     }
 }
 
+/* ── Etsy CTA banner ── */
+.etsy-banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    background: #fff;
+    border: 2px solid;
+    border-radius: 12px;
+    padding: 1.1rem 1.6rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.etsy-banner-text {
+    font-size: 0.95rem;
+    color: var(--text-color);
+    line-height: 1.5;
+}
+
+.etsy-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: #f1641e;
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 700;
+    padding: 0.6rem 1.4rem;
+    border-radius: 25px;
+    white-space: nowrap;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.etsy-btn:hover {
+    background-color: #d4521a;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 600px) {
+    .etsy-banner {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
 
