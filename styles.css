@@ -43,6 +43,10 @@ body{
     border-bottom: #333 solid 1px;
 }
 
+h1, h2, h3, p {
+    font-family: 'DM Serif Display', serif;
+}
+
 h1 {
     color: var(--text-color);
     margin: 0;
@@ -51,7 +55,8 @@ h1 {
 
 /* ── Nav links list ── */
 .brand {
-    font-size: 1.2rem;
+    font-family: 'DM Serif Display', serif;
+    font-size: 2rem;
     font-weight: 600;
     color: var(--text-color);
     position: absolute;
@@ -170,7 +175,7 @@ footer {
     align-items: center;
     gap: 3rem;
     padding: 3rem 0;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    border-bottom: 2px solid rgba(0, 0, 0, 0.2);
 }
 
 .split-section.reverse {
@@ -326,6 +331,8 @@ footer {
     font-weight: 700;
     color: var(--text-color);
     margin: 0 0 0.5rem;
+    display: block;
+    text-align: center;
 }
 
 .product-desc {
@@ -334,12 +341,13 @@ footer {
     line-height: 1.65;
     margin: 0 0 1.2rem;
     flex: 1;
+    text-align: center;
 }
 
 .product-footer {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     gap: 1rem;
     margin-top: auto;
     padding-top: 1rem;
@@ -353,7 +361,7 @@ footer {
     text-decoration: none;
     font-size: 0.88rem;
     font-weight: 600;
-    padding: 0.5rem 1.2rem;
+    padding: 1rem 1.2rem;
     border-radius: 25px;
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
