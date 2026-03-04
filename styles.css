@@ -412,6 +412,27 @@ footer {
     }
 }
 
+.product-price {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-dark);
+}
+
+.shop-loading,
+.shop-empty {
+    grid-column: 1 / -1;
+    text-align: center;
+    font-size: 1rem;
+    color: #888;
+    padding: 3rem 1rem;
+    font-style: italic;
+}
+
+.shop-empty a {
+    color: var(--color-dark);
+    text-decoration: underline;
+}
+
 /* ── Contact cards grid (no-form layout) ── */
 .contact-cards-grid {
     display: grid;

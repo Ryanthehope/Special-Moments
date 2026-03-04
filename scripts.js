@@ -1,3 +1,61 @@
+// ── Sanity config ─────────────────────────────────────────
+const SANITY_PROJECT_ID = '54015okq';
+const SANITY_DATASET    = 'firstone';
+
+function sanityImageUrl(ref) {
+    // ref format: image-abc123-1200x800-jpg
+    const clean = ref.replace('image-', '');
+    const parts = clean.split('-');
+    const ext   = parts.pop();
+    const dims  = parts.pop();
+    const id    = parts.join('-');
+    return `https://cdn.sanity.io/images/${SANITY_PROJECT_ID}/${SANITY_DATASET}/${id}-${dims}.${ext}`;
+}
+
+function buildProductCard(product) {
+    const imgUrl = product.image && product.image.asset
+        ? sanityImageUrl(product.image.asset._ref)
+        : './images/image-26.jpg';
+    const price = product.price ? `<span class="product-price">From \u00a3${product.price}</span>` : '';
+    return `
+    <article class="product-card">
+        <div class="product-image">
+            <img src="${imgUrl}" alt="${product.name}" loading="lazy">
+        </div>
+        <div class="product-info">
+            <h2 class="product-name">${product.name}</h2>
+            <p class="product-desc">${product.description || ''}</p>
+            <div class="product-footer">
+                ${price}
+                <a href="contact.html" class="product-btn">Enquire</a>
+            </div>
+        </div>
+    </article>`;
+}
+
+async function loadSanityProducts() {
+    const grid = document.getElementById('product-grid');
+    if (!grid) return;
+    try {
+        const query = encodeURIComponent('*[_type == "product" && available == true] | order(_createdAt asc) {name, description, price, image}');
+        const url   = `https://${SANITY_PROJECT_ID}.api.sanity.io/v2023-01-01/data/query/${SANITY_DATASET}?query=${query}`;
+        const res   = await fetch(url);
+        const { result } = await res.json();
+        const loader = document.getElementById('shop-loading');
+        if (loader) loader.remove();
+        if (result && result.length > 0) {
+            grid.innerHTML = result.map(buildProductCard).join('');
+            if (typeof observeFadeEls === 'function') observeFadeEls();
+        } else {
+            grid.innerHTML = '<p class="shop-empty">Products coming soon &mdash; <a href="contact.html">get in touch</a> to discuss a bespoke piece.</p>';
+        }
+    } catch (e) {
+        console.warn('Could not load Sanity products — showing static cards.', e);
+    }
+}
+
+loadSanityProducts();
+
 document.addEventListener("DOMContentLoaded", () => {
 
     // ── 1. Auto-update copyright year ──────────────────────────
@@ -17,23 +75,28 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // ── 3. Scroll fade-in for sections and cards ───────────────
-    const fadeEls = document.querySelectorAll(
-        ".split-section, .product-card, .shop-intro, .contact-intro, .info-card, .etsy-banner"
-    );
-    if ("IntersectionObserver" in window) {
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add("fade-in-visible");
-                    observer.unobserve(entry.target);
+    window.observeFadeEls = function() {
+        const fadeEls = document.querySelectorAll(
+            ".split-section, .product-card, .shop-intro, .contact-intro, .info-card, .etsy-banner"
+        );
+        if ("IntersectionObserver" in window) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("fade-in-visible");
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            fadeEls.forEach(el => {
+                if (!el.classList.contains("fade-in-hidden")) {
+                    el.classList.add("fade-in-hidden");
                 }
+                observer.observe(el);
             });
-        }, { threshold: 0.1 });
-        fadeEls.forEach(el => {
-            el.classList.add("fade-in-hidden");
-            observer.observe(el);
-        });
-    }
+        }
+    };
+    window.observeFadeEls();
 
     // ── 4. Scroll-to-top button ────────────────────────────────
     const scrollBtn = document.createElement("button");
