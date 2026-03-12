@@ -58,17 +58,33 @@ document.addEventListener("DOMContentLoaded", () => {
         window.scrollTo({ top: 0, behavior: "smooth" });
     });
 
-    // Click-to-enlarge for product images.
+    // Click-to-enlarge for product images with product details.
     const lightbox = document.createElement("div");
     lightbox.className = "image-lightbox";
     lightbox.setAttribute("aria-hidden", "true");
     lightbox.innerHTML = `
-        <button class="lightbox-close" aria-label="Close enlarged image">x</button>
-        <img src="" alt="Enlarged product image">
+        <button class="lightbox-close" aria-label="Close enlarged image">×</button>
+        <div class="lightbox-content">
+            <div class="lightbox-image-container">
+                <img src="" alt="Enlarged product image">
+            </div>
+            <div class="lightbox-info">
+                <h2 class="lightbox-title"></h2>
+                <p class="lightbox-desc"></p>
+                <div class="lightbox-footer">
+                    <span class="lightbox-price"></span>
+                    <a href="#" class="lightbox-btn" target="_blank" rel="noopener noreferrer">Buy via PayPal</a>
+                </div>
+            </div>
+        </div>
     `;
     document.body.appendChild(lightbox);
 
     const lightboxImg = lightbox.querySelector("img");
+    const lightboxTitle = lightbox.querySelector(".lightbox-title");
+    const lightboxDesc = lightbox.querySelector(".lightbox-desc");
+    const lightboxPrice = lightbox.querySelector(".lightbox-price");
+    const lightboxBtn = lightbox.querySelector(".lightbox-btn");
 
     function closeLightbox() {
         lightbox.classList.remove("open");
@@ -79,9 +95,23 @@ document.addEventListener("DOMContentLoaded", () => {
     document.addEventListener("click", (event) => {
         const clickedImage = event.target.closest(".product-image img");
         if (clickedImage) {
-            if (lightboxImg) {
-                lightboxImg.src = clickedImage.currentSrc || clickedImage.src;
-                lightboxImg.alt = clickedImage.alt || "Enlarged product image";
+            const productCard = clickedImage.closest(".product-card");
+            if (productCard) {
+                // Get product details
+                const productName = productCard.querySelector(".product-name")?.textContent || "";
+                const productDesc = productCard.querySelector(".product-desc")?.textContent || "";
+                const productPrice = productCard.querySelector(".product-price")?.textContent || "";
+                const productLink = productCard.querySelector(".product-btn")?.getAttribute("href") || "#";
+
+                // Populate lightbox
+                if (lightboxImg) {
+                    lightboxImg.src = clickedImage.currentSrc || clickedImage.src;
+                    lightboxImg.alt = clickedImage.alt || "Enlarged product image";
+                }
+                if (lightboxTitle) lightboxTitle.textContent = productName;
+                if (lightboxDesc) lightboxDesc.textContent = productDesc;
+                if (lightboxPrice) lightboxPrice.textContent = productPrice;
+                if (lightboxBtn) lightboxBtn.setAttribute("href", productLink);
             }
             lightbox.classList.add("open");
             lightbox.setAttribute("aria-hidden", "false");

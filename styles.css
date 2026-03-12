@@ -711,24 +711,104 @@ a.info-value:hover {
 .image-lightbox {
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.78);
+    background: rgba(0, 0, 0, 0.85);
     display: none;
     align-items: center;
     justify-content: center;
     padding: 1rem;
     z-index: 1001;
+    overflow-y: auto;
 }
 
 .image-lightbox.open {
     display: flex;
 }
 
-.image-lightbox img {
-    width: min(92vw, 980px);
-    max-height: 90vh;
+.lightbox-content {
+    background: rgba(30, 30, 35, 0.98);
+    border-radius: 12px;
+    max-width: 1100px;
+    width: 100%;
+    max-height: 92vh;
+    overflow-y: auto;
+    display: flex;
+    gap: 2rem;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.lightbox-image-container {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 12px 0 0 12px;
+    padding: 2rem;
+}
+
+.lightbox-image-container img {
+    width: 100%;
+    height: auto;
+    max-height: 70vh;
     object-fit: contain;
-    border-radius: 10px;
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+    border-radius: 8px;
+}
+
+.lightbox-info {
+    flex: 1;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.lightbox-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.75rem;
+    color: #fff;
+    margin: 0;
+    line-height: 1.3;
+}
+
+.lightbox-desc {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: #e8e8e8;
+    margin: 0;
+    flex: 1;
+}
+
+.lightbox-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    margin-top: auto;
+}
+
+.lightbox-price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #9d9bff;
+}
+
+.lightbox-btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background: #7371fc;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: background 0.3s ease;
+}
+
+.lightbox-btn:hover {
+    background: #5856d6;
 }
 
 .lightbox-close {
@@ -736,14 +816,65 @@ a.info-value:hover {
     top: 1rem;
     right: 1rem;
     border: none;
-    background: rgba(255, 255, 255, 0.22);
+    background: rgba(0, 0, 0, 0.6);
     color: #fff;
-    width: 40px;
-    height: 40px;
+    width: 44px;
+    height: 44px;
     border-radius: 50%;
-    font-size: 1.4rem;
+    font-size: 1.8rem;
     line-height: 1;
     cursor: pointer;
+    transition: background 0.2s ease;
+    z-index: 1;
+}
+
+.lightbox-close:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+@media (max-width: 768px) {
+    .lightbox-content {
+        flex-direction: column;
+        max-height: 95vh;
+        gap: 0;
+    }
+
+    .lightbox-image-container {
+        border-radius: 12px 12px 0 0;
+        padding: 1.5rem;
+        min-height: 300px;
+    }
+
+    .lightbox-image-container img {
+        max-height: 50vh;
+    }
+
+    .lightbox-info {
+        padding: 1.5rem;
+    }
+
+    .lightbox-title {
+        font-size: 1.4rem;
+    }
+
+    .lightbox-desc {
+        font-size: 0.9rem;
+    }
+
+    .lightbox-footer {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .lightbox-btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    .lightbox-price {
+        font-size: 1.3rem;
+        text-align: center;
+    }
 }
 
 @media (max-width: 640px) {
